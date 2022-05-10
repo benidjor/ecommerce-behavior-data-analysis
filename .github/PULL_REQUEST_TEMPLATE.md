@@ -2,13 +2,13 @@
 
 수정/추가한 내용을 적어주세요.
 
-## Screenshots (Optional)
+<!-- ## Screenshots (Optional)
 
 스크린샷을 첨부해주세요.
 
 | Before | After |
 |---|:---:|
-| `Before Image` | `After image` |
+| `Before Image` | `After image` | -->
 
 ## References
 
