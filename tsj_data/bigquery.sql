@@ -9,7 +9,6 @@
 
 with cat_split as (
             select table.*,
-            -- 원본 category_code가 대분류.중분류.소분류의 형식으로 되어 있어, 각각 "." 단위로 분리 작업 실행
                   split(category_code, ".")[safe_ordinal(1)] as main_cat,
                   split(category_code, ".")[safe_ordinal(2)] as sub_cat_1,
                   split(category_code, ".")[safe_ordinal(3)] as sub_cat_2
@@ -20,23 +19,26 @@ with cat_split as (
                   sub_cat_1,
                   count(case when event_type="view" then 1 end) as view, 
                   count(case when event_type="cart" then 1 end) as cart,
+                  -- 더 상세한 비율을 보기 위해 소수 셋째자리에서 반올림
                   round(count(case when event_type="cart" then 1 end) 
-                        / nullif(count(case when event_type="view" then 1 end), 0), 2) as cart_pct,
+                        / nullif(count(case when event_type="view" then 1 end), 0), 3) as cart_pct,
                   count(case when event_type="purchase" then 1 end) as purchase,       
                   round(count(case when event_type="purchase" then 1 end) 
-                        / nullif(count(case when event_type="cart" then 1 end), 0), 2) as purchase_pct,
+                        / nullif(count(case when event_type="cart" then 1 end), 0), 3) as purchase_pct,
                   round(count(case when event_type="purchase" then 1 end) 
-                        / nullif(count(case when event_type="view" then 1 end), 0), 2) as cvr,
+                        / nullif(count(case when event_type="view" then 1 end), 0), 3) as cvr,
                   round(sum(price)) as total_price,
                   -- 전체 price 더한 값 : 12323880556.039015
                   -- 요일별 합산 금액과 요일에 따른 카테고리 금액의 비율을 알기위해 서브쿼리로 pct_day 사용
-                  round(sum(price) / (select sum(price) from cat_split where day_name = cs.day_name), 2) as pct_day,
+                  round(sum(price) / (select sum(price) from cat_split where day_name = cs.day_name), 3) as pct_day,
                   -- (select sum(price) from cat_split where day_name = cs.day_name)
                   -- subquery는 밖에 그룹바이된 day_name, sub_cat_1과 아무 연관이 없이 혼자 도는 것이라서 where 절에 넣고 조건 거는 것이 맞다
             from cat_split as cs
             group by day_name, sub_cat_1
             order by cart_pct desc, view desc, purchase_pct desc, pct_day desc
+            -- order by pct_day desc, cart_pct desc, purchase_pct desc, cvr desc
       )
 select *
 from funnel_prac
-where pct_day >= 0.05
+-- pct_day 필터링 조건 변경
+where pct_day >= 0.04
