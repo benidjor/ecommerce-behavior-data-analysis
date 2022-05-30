@@ -41,4 +41,4 @@ with cat_split as (
 select *
 from funnel_prac
 -- pct_day 필터링 조건 변경
-where pct_day >= 0.04
+where pct_day >= 0.04 and sub_cat_1 is not null
