@@ -6,42 +6,29 @@
 - 배경
   - 비즈니스 레벨에서의 Action Plan 및 추천 시스템 도출 경험 부재
   - 비대면으로 프로젝트를 혼자 진행한 부트캠프 특성상, 협업의 필요성 증대
+
 - 목적
   - E-Commerce 웹 로그 데이터를 바탕으로 매출 증대를 위한 비즈니스 인사이트 도출 및 유저행동 기반 추천 서비스 구축
   - 데이터에 기반한, 설득력 있는 비즈니스 솔루션 제안
-        - 유저 행동에 따른 구매 이벤트 전환율 증가 목표
+    - 유저 행동에 따른 구매 이벤트 전환율 증가 목표
 
+- 프로젝트 선정 이유
+  - EDA, 시각화, SQL 등을 활용하여 다양한 방법으로 데이터 분석 및 인사이트 도출
+  - 비즈니스 레벨에 입각하여, 데이터 분석가로서 유효한 솔루션과 액션 플랜 수립
 
 ## 프로젝트 가설 및 분석방법
-- 가설 1) cart에 넣으면 90%이상은 구매할 것이다.
-  - 전체적으로는  80.17%로 확인됨. 해당 가설을 토대로 아래와 같은 가설로 접근
-
-- 가설 2) 특정 요일, 시간에 니즈가 증가하는 카테고리가 있다
-  - 요일별, 시간별,event_type 별로 구별하여 특정 요일, 시간대에 집중하여 view -> cart 비율을 높이는 action plan
-
-    요일별 view→cart 전환율 분석해본 결과 금,토,일에 가장 많은 전환율을 볼 수 있었음.
+- 고객 행동끼리는 서로 밀접한 관계가 있다
+  - cart에 넣으면 90% 이상은 구매할 것이다
+- 특정 요일, 시간에 니즈가 증가하는 카테고리가 있다
+- 카테고리, 제품 특성에 따라 매력을 느끼는 포인트가 다를 것이다
 
 ## 사용 데이터셋
-- [2019-Oct.csv.zip](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/775adf7d-bcca-4c24-b8ec-96c25f0e8af7/2019-Oct.csv.zip)
+- https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store
+  
 - event_time → 시간
   - UTC시간으로 표기 되었으며, 국가가 정해지지 않음 → GMT +4 시간대의 국가중 임의로 설정해서 진행
 - event_type → 행동
 - user_session → 유저행동의 세션 id
-
-## 팀 구성 및 역할
-### 공통 진행
-- EDA, 도메인 학습, 추천 시스템 학습, 추천 시스템 모델링
-### 전상택
-- github 페이지 생성 및 관리, Jira를 통한 칸반보드 작성
-- Action Plan 도출
-- Bigquery DB 적재
-- Ranking 기반의 추천 시스템 탐색 및 생성
-### 전상언
-- Notion 페이지 생성 및 정리
-- Daily, Weekly 리포트 정리 및 공유
-- 평점 기반의 추천 시스템 탐색 및 고안
-
-
 
 ## 사용한 모델
 - implicit(ALS) - cart기준 유사도를 활용한 score로 랭킹화하여 모델링
@@ -49,28 +36,42 @@
 
 ### 방법 적용이유
 - CF - 소비자랑 평가 패턴이 비슷한 사람들을 한 집단으로 보고 그 집단에 속한 사람들의 취향을 활용하는 기술
-
+- CF 모델 중, 행렬 분해 Matrix Factorization 방식 사용
+    - 행렬 분해 : 사용자와 아이템 데이터에 숨어있는 특징 잠재 차원 Latent Factor를 사용하여 표시
+  
+  - ALS 선정 이유
+    - 이커머스 로그데이터의 특성상, 고객의 선호도 암시적 implicit (명시적 explicit으로 드러나지 않는다)
+    - 고객의 행동 패턴을 바탕으로 자연스럽게 고객의 선호 유추하는 것이 중요
+    - implicit 피드백의 특성을 잘 고려한 모델이 Alternating Least Squares ALS
+  
+  - Collaborative Filtering (CF) : user - item 간 상호 작용 데이터를 활용하는 방법
+    - ex) 어떤 사람이 특정 아이템을 좋아했다면, 이런 아이템도 좋아할 것이다
+    - CF 모델은 user - item 간의 상호 작용에 기반하기 때문에, 비슷한 고객들이 실제로 함께 소비하는 경향이 높은 아이템을 발견하여 추천 가능
 
 ### 베이스라인 모델 / 선정 이유?
-- product_id 의 최빈값을 추천하는 것을 baseline 으로 선정했습니다.
-  - 분류는 최빈값을 baseline으로 하는 것이 일반적이기 때문입니다.
-- 각 user 들이 가장 많이 cart에 넣는 product을 추천하는 것을 기본으로 하여, 높은 성능의 추천 시스템을 생성하는 것을 우선적으로 생각했습니다.
+- product_id 의 최빈값을 추천하는 것을 baseline 으로 선정
+  - 분류는 최빈값을 baseline으로 하는 것이 일반적이기 때문
+- 각 user 들이 가장 많이 cart에 넣는 product을 추천하는 것을 기본으로 하여, 높은 성능의 추천 시스템을 생성하는 것을 우선적으로 진행
 
 
 ### 개선 모델 / 선정 이유?
-- CF - ALS / 데이터셋에 유저가 직접적으로 명시한 피드백이 없으므로 암시적 피드백의 특성을 잘 고려한 모델인 Alternating Least Squares(ALS) 모델을 활용하여 추천 시스템을 진행함.
+- CF - ALS / 데이터셋에 유저가 직접적으로 명시한 피드백이 없으므로 암시적 피드백의 특성을 잘 고려한 모델인 Alternating Least Squares(ALS) 모델을 활용하여 추천 시스템을 진행
 
 
 # 모델링 결과 비교 및 최종 의견
 
-베이스라인 
-    accuracy: 0.06891920602160981
+- Baseline
+  - accuracy: 0.06891920602160981
 
-ALS Model
-    Hit Rate : 0.87 / Precision : 0.1 / Recall : 0.83
+- ALS Model
+  - Hit Rate : 0.87
+  - Precision : 0.1
+  - Recall : 0.83
 
-모델링 결과 정밀도가 낮은데, 이커머스에서 추천 정밀도가 낮다면 이커머스 플랫폼에 대한 신뢰가 떨어질 수 있습니다. 추후 다른 달의 데이터에도 적용해본 후, 똑같이 정밀도가 저조하다면 향후 모델링을 개선해야 합니다.
-
+- 모델링 결과 분석
+  - 낮은 정밀도
+    - 이커머스에서 추천 정밀도가 낮다면 플랫폼에 대한 신뢰 하락 우려
+  - 추후 다른 달의 데이터에도 적용 후 똑같이 정밀도가 저조하다면 향후 모델링 개선 필요
 
 ### 프로젝트 회고
 
@@ -107,6 +108,7 @@ https://scvgoe.github.io/2017-02-01-%ED%98%91%EC%97%85-%ED%95%84%ED%84%B0%EB%A7%
 https://alphalabs.medium.com/implicit-recommendation-systems-applied-to-e-commerce-1c9ed3f9ecca
 
 ALS library
+https://tech.kakao.com/2021/10/18/collaborative-filtering/
 https://implicit.readthedocs.io/en/latest/als.html
 https://github.com/benfred/implicit
 https://github.com/AlphaLabsUY/recsys/blob/main/recommendation_system_instacart.ipynb
