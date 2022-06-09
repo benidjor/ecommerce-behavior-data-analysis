@@ -93,31 +93,31 @@
 # Reference
 
 ### 이커머스 도메인 지식
-https://brunch.co.kr/@ideawriter/59
-https://techblog.woowahan.com/2536/
-https://brunch.co.kr/@youup/4
-https://www.cigro.io/post/%EC%9D%B4%EC%BB%A4%EB%A8%B8%EC%8A%A4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D-%EC%8B%9C-%ED%95%84%EC%88%98%EB%A1%9C-%EB%B4%90%EC%95%BC%ED%95%98%EB%8A%94-3%EA%B0%80%EC%A7%80
-https://www.criteo.com/kr/blog/%EC%9D%B4%EC%BB%A4%EB%A8%B8%EC%8A%A4-%EB%A7%A4%EC%B6%9C%EC%9D%84-%ED%96%A5%EC%83%81%EC%8B%9C%ED%82%A4%EB%8A%94-4%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95/
+- https://brunch.co.kr/@ideawriter/59
+- https://techblog.woowahan.com/2536/
+- https://brunch.co.kr/@youup/4
+- https://www.cigro.io/post/%EC%9D%B4%EC%BB%A4%EB%A8%B8%EC%8A%A4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D-%EC%8B%9C-%ED%95%84%EC%88%98%EB%A1%9C-%EB%B4%90%EC%95%BC%ED%95%98%EB%8A%94-3%EA%B0%80%EC%A7%80
+- https://www.criteo.com/kr/blog/%EC%9D%B4%EC%BB%A4%EB%A8%B8%EC%8A%A4-%EB%A7%A4%EC%B6%9C%EC%9D%84-%ED%96%A5%EC%83%81%EC%8B%9C%ED%82%A4%EB%8A%94-4%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95/
 https://www.mobiinside.co.kr/2022/02/03/crm-marketing-3/
 
 ### 추천 시스템
-https://buzzni.com/blog/37
-https://davinci-ai.tistory.com/12
-https://glanceyes.tistory.com/m/entry/%EC%B6%94%EC%B2%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9D%98-%ED%8F%89%EA%B0%80-%EB%B0%A9%EB%B2%95%EA%B3%BC-%EC%8B%A4%ED%97%98%EC%97%90%EC%84%9C%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%ED%95%A0-%EC%A0%84%EB%9E%B5
-https://changyeon2.tistory.com/2
-https://scvgoe.github.io/2017-02-01-%ED%98%91%EC%97%85-%ED%95%84%ED%84%B0%EB%A7%81-%EC%B6%94%EC%B2%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C-(Collaborative-Filtering-Recommendation-System)/
-https://alphalabs.medium.com/implicit-recommendation-systems-applied-to-e-commerce-1c9ed3f9ecca
+- https://buzzni.com/blog/37
+-https://davinci-ai.tistory.com/12
+- https://glanceyes.tistory.com/m/entry/%EC%B6%94%EC%B2%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9D%98-%ED%8F%89%EA%B0%80-%EB%B0%A9%EB%B2%95%EA%B3%BC-%EC%8B%A4%ED%97%98%EC%97%90%EC%84%9C%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%ED%95%A0-%EC%A0%84%EB%9E%B5
+- https://changyeon2.tistory.com/2
+- https://scvgoe.github.io/2017-02-01-%ED%98%91%EC%97%85-%ED%95%84%ED%84%B0%EB%A7%81-%EC%B6%94%EC%B2%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C-(Collaborative-Filtering-Recommendation-System)/
+- https://alphalabs.medium.com/implicit-recommendation-systems-applied-to-e-commerce-1c9ed3f9ecca
 
-ALS library
-https://tech.kakao.com/2021/10/18/collaborative-filtering/
-https://implicit.readthedocs.io/en/latest/als.html
-https://github.com/benfred/implicit
-https://github.com/AlphaLabsUY/recsys/blob/main/recommendation_system_instacart.ipynb
-https://assaeunji.github.io/machine%20learning/2020-11-29-implicitfeedback/
-https://minkithub.github.io/2020/06/24/implicit_ALS/
-https://medium.com/radon-dev/als-implicit-collaborative-filtering-5ed653ba39fe
+#### ALS library
+- https://tech.kakao.com/2021/10/18/collaborative-filtering/
+- https://implicit.readthedocs.io/en/latest/als.html
+- https://github.com/benfred/implicit
+- https://github.com/AlphaLabsUY/recsys/blob/main/recommendation_system_instacart.ipynb
+- https://assaeunji.github.io/machine%20learning/2020-11-29-implicitfeedback/
+- https://minkithub.github.io/2020/06/24/implicit_ALS/
+- https://medium.com/radon-dev/als-implicit-collaborative-filtering-5ed653ba39fe
 
-surprise library
-https://surprise.readthedocs.io/en/stable/getting_started.html#load-dom-dataframe-py
-https://techblog-history-younghunjo1.tistory.com/117?category=924148
+#### 평점 기반 library (surprise)
+- https://surprise.readthedocs.io/en/stable/getting_started.html#load-dom-dataframe-py
+- https://techblog-history-younghunjo1.tistory.com/117?category=924148
 
