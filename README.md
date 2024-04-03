@@ -17,10 +17,17 @@
   - EDA, 시각화, SQL 등을 활용하여 다양한 방법으로 데이터 분석 및 인사이트 도출
   - 비즈니스 레벨에 입각하여, 데이터 분석가로서 유효한 솔루션과 액션 플랜 수립
 
-## 프로젝트 가설 및 분석방법
+## 프로젝트 가설 및 분석 방법
+### 가설
 - 고객 행동끼리는 서로 밀접한 관계가 있다
 - 특정 요일, 시간에 니즈가 증가하는 카테고리가 있다
 - 카테고리, 제품 특성에 따라 매력을 느끼는 포인트가 다를 것이다
+### 분석 방법
+1. Data Collection
+   - Kaggle 데이터셋 `BigQuery`에 적재
+   - `Google Data Studio`를 통해 시각화 + 대시보드 생성
+2. Data Preprocessing & EDA
+   - 
 
 ## 사용 데이터셋
 - https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store
