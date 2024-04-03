@@ -1,5 +1,10 @@
 # 이커머스 데이터 분석 & 추천 모델링
 
+## 프로젝트 파일
+> - 전처리 : ecommerce-behavior-data-analysis/CP2_final/cp2_Preprocessing.ipynb
+> - EDA : ecommerce-behavior-data-analysis/CP2_final/cp2_EDA.ipynb
+> - 추천 시스템 : ecommerce-behavior-data-analysis/CP2_final/cp2_ALS.ipynb
+
 
 ## 프로젝트 배경 및 목적
 
