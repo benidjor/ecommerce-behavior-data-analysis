@@ -131,4 +131,3 @@ https://www.mobiinside.co.kr/2022/02/03/crm-marketing-3/
 #### 평점 기반 library (surprise)
 - https://surprise.readthedocs.io/en/stable/getting_started.html#load-dom-dataframe-py
 - https://techblog-history-younghunjo1.tistory.com/117?category=924148
-
