@@ -10,7 +10,7 @@
 - 목적
   - E-Commerce 웹 로그 데이터를 바탕으로 매출 증대를 위한 비즈니스 인사이트 도출 및 유저행동 기반 추천 서비스 구축
   - 데이터에 기반한, 설득력 있는 비즈니스 솔루션 제안
-    - 유저 행동에 따른 구매 이벤트 전환율 증가 목표
+  - 유저 행동에 따른 구매 이벤트 전환율 증가 목표
 
 - 프로젝트 선정 이유
   - e-commerce 시장은 방대한 로그 데이터를 기반으로 하기 때문에, 고객 분석 및 추천 시스템 학습에 적합
@@ -22,20 +22,17 @@
 - 고객 행동끼리는 서로 밀접한 관계가 있다
 - 특정 요일, 시간에 니즈가 증가하는 카테고리가 있다
 - 카테고리, 제품 특성에 따라 매력을 느끼는 포인트가 다를 것이다
+
 ### 분석 방법
-1. Data Collection
+1. Data Collection [바로가기](https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store)
    - Kaggle 데이터셋 `BigQuery`에 적재
    - `Google Data Studio`를 통해 시각화 + 대시보드 생성
+     
 2. Data Preprocessing & EDA
-   - 
-
-## 사용 데이터셋
-- https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store
-  
-- event_time → 시간
-  - UTC시간으로 표기 되었으며, 국가가 정해지지 않음 → GMT +4 시간대의 국가중 임의로 설정해서 진행
-- event_type → 행동
-- user_session → 유저행동의 세션 id
+   - 실제 데이터 출처인 이커머스 웹사이트 발견하여, 대량의 결측치 처리
+   - 대분류, 중분류, 소분류로 카테고리 세분화
+   - event_type, category_code, brand 별 고객 행동 시각화
+   - 퍼널 분석, 코호트 분석 시행
 
 ## 사용한 모델
 - implicit(ALS) - cart기준 유사도를 활용한 score로 랭킹화하여 모델링
